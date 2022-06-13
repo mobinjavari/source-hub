@@ -1,0 +1,296 @@
+.tabs {
+  --background: #FFFFFF;
+  --light-grey: #C6CFD9;
+  --wave-color: #2AC8DD;
+  --width: 300px;
+  --height: 75px;
+  --border-radius: var(--height);
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  padding: 0;
+  position: relative;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+          box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.tabs label {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+.tabs label::before {
+  content: "";
+  height: 4px;
+  width: 4px;
+  border-radius: 0% 100% 50% 50% / 0% 50% 50% 100%;
+  -webkit-transform: scale(1, 1) rotate(45deg);
+          transform: scale(1, 1) rotate(45deg);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  background: var(--wave-color);
+  display: block;
+  position: absolute;
+  top: -30px;
+}
+
+.tabs label svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs label svg .icon {
+  fill: none;
+  stroke: var(--light-grey);
+  stroke-dashoffset: 98;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -webkit-transition: stroke .15s linear .3s;
+  transition: stroke .15s linear .3s;
+}
+
+.tabs label .wave {
+  height: 26px;
+  width: 26px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.tabs label .wave::before, .tabs label .wave::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  right: 0;
+  background-repeat: repeat;
+  height: 14px;
+  width: 48px;
+  background-size: 12px 12px;
+  -webkit-animation: wave-animation 3s linear infinite;
+          animation: wave-animation 3s linear infinite;
+  -webkit-transition: bottom .15s ease-out .35s;
+  transition: bottom .15s ease-out .35s;
+}
+
+.tabs label .wave::before {
+  background-image: radial-gradient(circle at 6px -3px, transparent 6px, var(--wave-color) 6px);
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  opacity: .5;
+}
+
+.tabs label .wave::after {
+  background-image: radial-gradient(circle at 6px -3px, transparent 6px, var(--wave-color) 6px);
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.tabs label:nth-of-type(1) .wave {
+  -webkit-clip-path: url(#path-icon-01);
+          clip-path: url(#path-icon-01);
+}
+
+.tabs label:nth-of-type(2) .wave {
+  -webkit-clip-path: url(#path-icon-02);
+          clip-path: url(#path-icon-02);
+}
+
+.tabs label:nth-of-type(3) .wave {
+  -webkit-clip-path: url(#path-icon-03);
+          clip-path: url(#path-icon-03);
+}
+
+.tabs label:nth-of-type(4) .wave {
+  -webkit-clip-path: url(#path-icon-04);
+          clip-path: url(#path-icon-04);
+}
+
+.tabs input {
+  display: none;
+}
+
+.tabs input:checked + label {
+  -webkit-animation: wiggle-animation 1s ease .3s;
+          animation: wiggle-animation 1s ease .3s;
+}
+
+.tabs input:checked + label::before {
+  -webkit-animation: drop-animation .35s ease-in both;
+          animation: drop-animation .35s ease-in both;
+}
+
+.tabs input:checked + label svg .icon {
+  stroke: #4B4B4B;
+}
+
+.tabs input:checked + label .wave:before {
+  bottom: 0;
+}
+
+.tabs input:checked + label .wave:after {
+  bottom: -4px;
+}
+
+@-webkit-keyframes wiggle-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
+  }
+  60% {
+    -webkit-transform: rotate(7deg);
+            transform: rotate(7deg);
+  }
+  90% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes wiggle-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
+  }
+  60% {
+    -webkit-transform: rotate(7deg);
+            transform: rotate(7deg);
+  }
+  90% {
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes wave-animation {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@-webkit-keyframes drop-animation {
+  70% {
+    -webkit-transform: scale(0.8, 3) rotate(45deg);
+            transform: scale(0.8, 3) rotate(45deg);
+    top: -7px;
+  }
+  100% {
+    -webkit-transform: scale(1.5, 0.5) rotate(45deg);
+            transform: scale(1.5, 0.5) rotate(45deg);
+    top: 19px;
+  }
+}
+
+@keyframes drop-animation {
+  70% {
+    -webkit-transform: scale(0.8, 3) rotate(45deg);
+            transform: scale(0.8, 3) rotate(45deg);
+    top: -7px;
+  }
+  100% {
+    -webkit-transform: scale(1.5, 0.5) rotate(45deg);
+            transform: scale(1.5, 0.5) rotate(45deg);
+    top: 19px;
+  }
+}
+
+body {
+  background: #eeeef5;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .socials {
+  position: fixed;
+  display: block;
+  left: 20px;
+  bottom: 20px;
+}
+
+body .socials > a {
+  display: block;
+  width: 30px;
+  opacity: .2;
+  -webkit-transform: scale(var(--scale, 0.8));
+          transform: scale(var(--scale, 0.8));
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91), -webkit-transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+}
+
+body .socials > a:hover {
+  --scale: 1;
+}
+/*# sourceMappingURL=style.css.map */
