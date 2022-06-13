@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">تولید پسورد</h2>
+        <div class="result">
+            <div class="result__title field-title">پسورد تولید شده</div>
+            <div class="result__info right">کلیک کنید تا کپی شود</div>
+            <div class="result__info left">کپی شد</div>
+            <div class="result__viewbox" id="result">روی دکمه تولید پسورد کلیک کنید</div>
+            <button id="copy-btn" style="--x: 0; --y: 0"><i class="far fa-copy"></i></button>
+        </div>
+        <div class="length range__slider" data-min="4" data-max="32">
+            <div class="length__title field-title" data-length='0'> طول : </div>
+            <input id="slider" type="range" min="4" max="32" value="16" />
+        </div>
+    
+        <div class="settings">
+            <span class="settings__title field-title">تنظیمات</span>
+            <div class="setting">
+                <input type="checkbox" id="uppercase" checked />
+                <label for="uppercase">شامل حروف بزرگ باشد</label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="lowercase" checked />
+                <label for="lowercase">شامل حروف کوچک باشد</label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="number" checked />
+                <label for="number">شامل اعداد باشد</label>
+            </div>
+            <div class="setting">
+                <input type="checkbox" id="symbol" />
+                <label for="symbol">شامل کارکتر های خاص باشد</label>
+            </div>
+        </div>
+    
+        <button class="btn generate" id="generate">تولید پسورد</button>
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
