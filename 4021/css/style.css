@@ -1,0 +1,170 @@
+﻿:root {
+    --bg-color: #f6f6f6;
+    --font-famliy: "vazir";
+}
+
+
+@font-face {
+    font-family: "vazir";
+    src: url("../font/Vazir.eot"); /* IE9 Compat Modes */
+    src: url("../font/Vazir.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../font/Vazir.otf") format("opentype"), /* Open Type Font */
+    url("../font/Vazir.svg") format("svg"), /* Legacy iOS */
+    url("../font/Vazir.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../font/Vazir.woff") format("woff"), /* Modern Browsers */
+    url("../font/Vazir.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.body {
+    font-family: var(--font-famliy) !important;
+    background: var(--bg-color) !important;
+}
+
+.container {
+    height: 100%;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.overlay {
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: hidden;    
+    position: absolute;
+    background: #00000044;
+}
+
+.box {
+    opacity: 0;
+    z-index: -1;
+    color: #bebebe;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    max-width: 1000px;
+    border-radius: 20px;
+    background: #101010;
+    border: 1px solid #cccccc1c;
+    transition: 0.3s ease-in-out all;
+}
+
+.box-body {
+    padding: 14px 26px;
+}
+
+.box-footer {
+    padding: 0px 12px 12px 0px;
+    text-align: right;
+}
+
+.box-btn {
+    left: 0 !important;
+    top: 0 !important;
+    position: relative !important;
+    padding: 7px 15px !important;
+    transform: none !important;
+}
+
+.button {
+    padding: 10px 30px;
+    border: none;
+    background: #C2185B;
+    border-radius: 10px;
+    color: #dfdfdf;
+    transition: all 0.15s ease-in;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    z-index: 1;
+    font-family: var(--font-famliy);
+}
+
+button:hover,:focus {
+    background: #c2185cb2;
+}
+
+.message {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-300%);
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-300%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0,0);
+    }
+
+    50% {
+        transform: scale(1.25,1.25)
+    }
+
+    100% {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutScale {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0,0);
+    }
+}

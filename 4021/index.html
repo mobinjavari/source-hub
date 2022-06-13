@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="./css/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>alert-box</title>
+</head>
+<body class="body">
+
+    <!--Click Button ::> onclick="alert.send('send message')"-->
+    <button class="button alert-btn" onclick="alert.send('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, ipsam? Deserunt, ipsum nobis facere voluptates iusto pariatur aspernatur laudantium ea!')">کلیک کنید</button>
+
+    <!--Alert Box-->
+    <div class="overlay">
+        <div class="container">
+            <div class="box">
+                <div class="box-head">
+                </div>
+                <div class="box-body">
+                    <p class="message"></p>
+                </div>
+                <div class="box-footer">
+                    <button class="button box-btn" onclick="alert.return()">بستن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
