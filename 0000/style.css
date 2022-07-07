@@ -96,8 +96,8 @@
   }
   ul#files li a:focus,
   ul#files li a:hover {
-    background: rgb(143 143 143 / 29%);
-    border: 1px solid #727272;
+    background: rgb(143 143 143 / 17%);
+    border: 1px solid #72727224;
   }
   ul#files li a.highlight {
     -webkit-transition: background .4s ease-in-out;
@@ -177,20 +177,20 @@
       margin: 0;
     }
     ul#files {
-      border-top: 1px solid #cacaca;
+      border-top: 1px solid #cacaca30;
     }
     ul#files li {
       float: none;
       width: auto !important;
       display: block;
-      border-bottom: 1px solid #cacaca;
+      border-bottom: 1px solid #cacaca30;
       font-size: 2em;
       line-height: 1.2em;
       text-indent: 0;
       margin: 0;
     }
     ul#files li:nth-child(odd) {
-      background: #f1f1a567;
+      background: #000000e0;
     }
     ul#files li a {
       height: auto;
